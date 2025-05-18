@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: bokeh-app
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: bokeh serve main.py --allow-websocket-origin=your-app-name.onrender.com --port 10000
+    envVars:
+      - key: BOKEH_ALLOW_WS
+        value: demo_streaming_data_bokeh.onrender.com
